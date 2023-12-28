@@ -1,0 +1,31 @@
+.nav{
+  width: 100vw;
+  height: 10vh;
+  min-height: 50px;
+  box-sizing: border-box;
+  border: solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: wheat;
+}
+.btn{
+  width: 100px;
+  height: 40px;
+  padding: 5px;
+  background: transparent;
+}
+.btnContainer{
+  box-sizing: border-box;
+  border: solid red;
+  position: relative;
+}
+.slider{
+  height: 100%;
+  width: 50%;
+  background-color: aqua;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transform: translateX(100%);
+}
