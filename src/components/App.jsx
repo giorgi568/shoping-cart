@@ -6,7 +6,7 @@ function App() {
   const location = useLocation().pathname;
   let navigate = useNavigate();
   const sliderStyle =
-    location === '/store' ? { transform: 'translateX(100%)', borderRadius:' 8px 0px 0px 8px' } : {};
+    location === '/store' ? { transform: 'translateX(100%)', borderRadius:' 0px 8px 8px 0px' } : {};
   return (
     <>
       <div className={styles.nav}>

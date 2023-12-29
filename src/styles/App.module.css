@@ -4,12 +4,13 @@
   height: 10vh;
   min-height: 50px;
   box-sizing: border-box;
-  border: solid black;
   display: flex;
+  position: sticky;
+  top: 0;
   justify-content: center;
   align-items: center;
   color: white;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
 }
 .btn{
   width: 100px;
@@ -19,14 +20,17 @@
 }
 .btnContainer{
   box-sizing: border-box;
-  /* border: solid red; */
+  border: 1px solid;
+  border-color: #BFCFE7;
+  border-radius: 13px;
+  overflow: hidden;
   position: relative;
 }
 .slider{
   height: 100%;
   width: 50%;
-  background-color: aqua;
-  border-radius: 0px 8px 8px 0px;
+  background-color: #BFCFE7;
+  border-radius: 8px 0px 0px 8px;
   position: absolute;
   top: 0;
   z-index: -1;
