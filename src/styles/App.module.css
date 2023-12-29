@@ -1,5 +1,6 @@
 .nav{
   width: 100vw;
+  max-width: 1280px;
   height: 10vh;
   min-height: 50px;
   box-sizing: border-box;
@@ -7,7 +8,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: wheat;
+  color: white;
+  backdrop-filter: blur(3px);
 }
 .btn{
   width: 100px;
@@ -17,15 +19,18 @@
 }
 .btnContainer{
   box-sizing: border-box;
-  border: solid red;
+  /* border: solid red; */
   position: relative;
 }
 .slider{
   height: 100%;
   width: 50%;
   background-color: aqua;
+  border-radius: 0px 8px 8px 0px;
   position: absolute;
   top: 0;
   z-index: -1;
-  transform: translateX(100%);
+  transition-property: transform, border-radius;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-out;
 }
