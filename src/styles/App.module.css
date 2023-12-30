@@ -10,7 +10,8 @@
   justify-content: center;
   align-items: center;
   color: white;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(7px);
+  z-index: 10; /* this is so blur effect still works*/
 }
 .btn{
   width: 100px;

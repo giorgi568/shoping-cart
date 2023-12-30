@@ -1,23 +1,19 @@
 import styles from '../styles/About.module.css';
-import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function AboutPage() {
-  const location = useLocation().pathname;
-  const isAboutPage = location === '/';
-  const [initialRender, setInitialRender] = useState(true);
+  const [wrapperStyle, setWrapperStyle] = useState({});
+
   useEffect(() => {
-    setInitialRender(false);
+    setWrapperStyle({
+      transform: 'translateX(0px)',
+    });
   }, []);
-  const wrapperStyle = {
-    transform:
-      isAboutPage || initialRender ? 'translateX(0px)' : 'translateX(-200px)',
-    transition: 'transform 50s ease-in-out',
-  };
+  console.log(wrapperStyle);
   return (
     <div className={styles.wrapper}>
       <img
-        src='/public/shoping.svg'
+        src='shoping.svg'
         alt='shoping illustration'
         width={'400px'}
         className={styles.img}

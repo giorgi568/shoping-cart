@@ -2,7 +2,10 @@
 .img{
   float: left;
   margin: 1rem 1rem 1rem 5rem;
+  transform: translateX(-200px) rotateZ(20deg);
+  transition: transform 1s ease-in-out;
 }
+
 .text{
   text-align: center;
   justify-content: center;
