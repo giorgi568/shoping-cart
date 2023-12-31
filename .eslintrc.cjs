@@ -17,4 +17,18 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-}
+  overrides: [
+    {
+      files: ['src/**/*.test.jsx', 'src/**/*.test.js'],
+      env: {
+        browser: true,
+        'jest/globals': true,
+      },
+      extends: ['plugin:react/recommended', 'plugin:testing-library/react'],
+      plugins: ['testing-library'],
+      rules: {
+        // Additional rules or overrides specific to React Testing Library
+      },
+    },
+  ],
+};

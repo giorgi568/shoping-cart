@@ -3,25 +3,31 @@ import getCategories from '../apiCalls';
 
 export default function Store() {
   const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('');
   useEffect(() => {
     const fetchCategories = async () => {
       const categoriesData = await getCategories();
       setCategories(categoriesData);
+      setSelectedCategory(categoriesData[0]);
     };
     fetchCategories();
   }, []);
 
-  console.log(categories);
+  const handleSelectChange = (event) => {
+    const selectedOption = event.target.value;
+    setSelectedCategory(selectedOption);
+  };
+
   return (
     <div>
       <div>
         {categories.length > 0 && (
           <div>
             <label htmlFor='category'>Please Choose The Category</label>
-            <select name='category' id='category'>
+            <select name='category' id='category' onChange={handleSelectChange}>
               {categories.map((element, index) => {
                 return (
-                  <option key={index} value={element} data-testid = 'options'>
+                  <option key={index} value={element} data-testid='options' >
                     {element}
                   </option>
                 );
@@ -30,6 +36,8 @@ export default function Store() {
           </div>
         )}
       </div>
+
+      
     </div>
   );
 }
