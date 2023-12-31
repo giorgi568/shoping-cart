@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import getCategories from '../apiCalls';
+import {getCategories, getProducts} from '../apiCalls';
 
 export default function Store() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [productArr, setProductArr] = useState([]);
   useEffect(() => {
     const fetchCategories = async () => {
       const categoriesData = await getCategories();
@@ -12,6 +13,14 @@ export default function Store() {
     };
     fetchCategories();
   }, []);
+  
+  useEffect(()=> {
+    const fetchProducts = async () => {
+      const products = await getProducts(selectedCategory);
+      setProductArr(products);
+    }
+    fetchProducts();
+  }, [selectedCategory]);
 
   const handleSelectChange = (event) => {
     const selectedOption = event.target.value;
@@ -37,7 +46,7 @@ export default function Store() {
         )}
       </div>
 
-      
+
     </div>
   );
 }
