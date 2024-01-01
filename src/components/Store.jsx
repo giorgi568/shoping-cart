@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import {getCategories, getProducts} from '../apiCalls';
+import { getCategories, getProducts } from '../apiCalls';
+import ItemCard from './ItemCard';
+import styles from '../styles/Store.module.css';
 
 export default function Store() {
   const [categories, setCategories] = useState([]);
@@ -13,12 +15,14 @@ export default function Store() {
     };
     fetchCategories();
   }, []);
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     const fetchProducts = async () => {
-      const products = await getProducts(selectedCategory);
-      setProductArr(products);
-    }
+      if (selectedCategory != '') {
+        const products = await getProducts(selectedCategory);
+        setProductArr(products);
+      }
+    };
     fetchProducts();
   }, [selectedCategory]);
 
@@ -26,17 +30,17 @@ export default function Store() {
     const selectedOption = event.target.value;
     setSelectedCategory(selectedOption);
   };
-
+  // console.log(productArr[0].description);
   return (
-    <div>
+    <div className={styles.content}>
       <div>
         {categories.length > 0 && (
-          <div>
+          <div className={styles.categoryWrapper}>
             <label htmlFor='category'>Please Choose The Category</label>
             <select name='category' id='category' onChange={handleSelectChange}>
               {categories.map((element, index) => {
                 return (
-                  <option key={index} value={element} data-testid='options' >
+                  <option key={index} value={element} data-testid='options'>
                     {element}
                   </option>
                 );
@@ -45,8 +49,10 @@ export default function Store() {
           </div>
         )}
       </div>
-
-
+      {productArr.length > 0 &&
+        productArr.map((item) => {
+          return <ItemCard item={item} />;
+        })}
     </div>
   );
 }
