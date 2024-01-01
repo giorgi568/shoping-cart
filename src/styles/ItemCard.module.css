@@ -58,6 +58,32 @@
 }
 .wrapper2{
   display: flex;
-  gap: 20px;
-  
+  gap: 20px; 
+}
+.quantityLabel{
+  font-size: 1.2rem;
+}
+.quantityInput{
+  composes: quantityLabel;
+  border: 0;
+  background-color: #BFCFE7;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 10px 1px lightgray;
+}
+.btn{
+  padding: 10px;
+  width: 100%;
+  background-color: #BFCFE7;
+  box-shadow: 0px 0px 10px 1px lightgray;
+}
+.inputWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.labelWrapper{
+  display: flex;
+  gap: 5px;
 }

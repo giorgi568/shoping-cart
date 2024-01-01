@@ -13,6 +13,13 @@ export default function ItemCard({ item }) {
         <div className={styles.descriptionWrapper}>
           <p className={styles.description}>{item.description}</p>
         </div>
+        <div className={styles.inputWrapper}>
+          <div className={styles.labelWrapper}>
+            <label htmlFor="quantity" className={styles.quantityLabel}>Quantity:</label>
+            <input type="number" min={1} max={10} name='quantity' id='quantity' defaultValue={1} className={styles.quantityInput}/>
+          </div>
+          <button className={styles.btn}>Add To Your Cart</button>
+        </div>
       </div>
       <div className={styles.footer}>
         <div className={styles.wrapper2}>
