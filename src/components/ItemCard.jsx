@@ -1,4 +1,5 @@
 import styles from '../styles/ItemCard.module.css';
+import propTypes from 'prop-types'
 
 export default function ItemCard({ item }) {
   return (
@@ -15,8 +16,18 @@ export default function ItemCard({ item }) {
         </div>
         <div className={styles.inputWrapper}>
           <div className={styles.labelWrapper}>
-            <label htmlFor="quantity" className={styles.quantityLabel}>Quantity:</label>
-            <input type="number" min={1} max={10} name='quantity' id='quantity' defaultValue={1} className={styles.quantityInput}/>
+            <label htmlFor='quantity' className={styles.quantityLabel}>
+              Quantity:
+            </label>
+            <input
+              type='number'
+              min={1}
+              max={10}
+              name='quantity'
+              id='quantity'
+              defaultValue={1}
+              className={styles.quantityInput}
+            />
           </div>
           <button className={styles.btn}>Add To Your Cart</button>
         </div>
@@ -37,3 +48,7 @@ export default function ItemCard({ item }) {
     </div>
   );
 }
+
+ItemCard.propTypes = {
+  item: propTypes.object,
+};

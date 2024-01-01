@@ -1,5 +1,5 @@
 import '../App.css';
-import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
 import styles from '../styles/App.module.css';
 
 function App() {

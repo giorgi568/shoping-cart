@@ -51,7 +51,7 @@ export default function Store() {
       </div>
       {productArr.length > 0 &&
         productArr.map((item) => {
-          return <ItemCard item={item} />;
+          return <ItemCard item={item} key={item.id} />;
         })}
     </div>
   );
