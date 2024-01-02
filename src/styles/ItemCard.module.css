@@ -92,3 +92,9 @@
   display: flex;
   gap: 5px;
 }
+.inputError{
+  font-size: 0.8rem;
+  color: red;
+  padding: 0;
+  margin: 0;
+}

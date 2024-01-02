@@ -2,13 +2,22 @@ import '../App.css';
 import { Outlet, useLocation, useNavigate, Link } from 'react-router-dom';
 import styles from '../styles/App.module.css';
 import { createContext } from 'react';
+import { useState } from 'react';
 
-export const CartContext = createContext([]);
+export const CartContext = createContext({
+  cartItems: [],
+  addToCart: () => {},
+});
 
 function App() {
   const location = useLocation().pathname;
   let navigate = useNavigate();
   let sliderStyle = {};
+  const [cartItems, setCartItems] = useState([]);
+  const addToCart = (items) => {
+    setCartItems(items);
+  };
+
   if (location === '/cart') {
     sliderStyle = { display: 'none' };
   } else if (location === '/store') {
@@ -18,7 +27,7 @@ function App() {
     };
   }
   return (
-    <>
+    <CartContext.Provider value={{ cartItems, addToCart }}>
       <div className={styles.nav}>
         <div className={styles.btnContainer}>
           <button className={styles.btn} onClick={() => navigate('/')}>
@@ -36,7 +45,7 @@ function App() {
         </div>
       </div>
       <Outlet />
-    </>
+    </CartContext.Provider>
   );
 }
 

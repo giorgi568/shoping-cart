@@ -7,6 +7,7 @@ export default function Store() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [productArr, setProductArr] = useState([]);
+
   useEffect(() => {
     const fetchCategories = async () => {
       const categoriesData = await getCategories();
