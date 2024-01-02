@@ -5,9 +5,24 @@ import { CartContext } from './App';
 
 export default function ItemCard({ item }) {
   const { cartItems, addToCart } = useContext(CartContext);
-  const [inputError, setInputError] = useState(false);
+  const [inputError, setInputError] = useState('');
   const [qnt, setQnt] = useState(1);
-  console.log(cartItems);
+
+  const checkQntValue = () => {
+    if (qnt > 10) {
+      setInputError('over10');
+      return false;
+    } else if (qnt < 1) {
+      setInputError('below1');
+      return false;
+    } else if (!Number.isInteger(qnt)) {
+      setInputError('notInteger');
+      return false;
+    } else {
+      setInputError('');
+      return true;
+    }
+  };
 
   const checkQnt = (id, qnt) => {
     let lessThanTen = true;
@@ -55,10 +70,7 @@ export default function ItemCard({ item }) {
             onClick={(e) => {
               let items = [...cartItems];
               e.preventDefault();
-              if (!checkQnt(item.id, qnt) || qnt > 10) {
-                !inputError && setInputError(true);
-              } else {
-                inputError && setInputError(false);
+              if (checkQnt(item.id, qnt) && checkQntValue()) {
                 let alreadyInCart = false;
                 cartItems.forEach((product) => {
                   if (product.id === item.id) {
@@ -81,10 +93,19 @@ export default function ItemCard({ item }) {
           >
             Add To Your Cart
           </button>
-          {inputError && (
+
+          {inputError === 'over10' && (
             <p className={styles.inputError}>
-              Quantity Must Not Be Higher Than 10
+              Quantity Must Not Be lower Than 10
             </p>
+          )}
+          {inputError === 'below1' && (
+            <p className={styles.inputError}>
+              Quantity Must Not Be Higher Than 1
+            </p>
+          )}
+          {inputError === 'notInteger' && (
+            <p className={styles.inputError}>Quantity Must Be An Integer</p>
           )}
         </div>
       </div>

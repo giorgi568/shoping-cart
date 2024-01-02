@@ -22,27 +22,26 @@ export default function Cart() {
 
   return (
     <div>
-      <div>
-        <div className={styles.cart}>
-          {cartItems.length > 0 &&
-            cartItems.map((item, index) => {
-              return <CartItemCard item={item} index={index} key={item.id} />;
-            })}
-        </div>
-        <div className={styles.checkoutBtn}>
-          {cartItems.length > 0 && (
-            <button
-              className={styles.btn}
-              onClick={(e) => {
-                e.preventDefault;
-                window.alert('Checkout not working (not a real store)');
-              }}
-            >
-              Chekout {getTotalPrice()}$
-            </button>
-          )}
-        </div>
+      <div className={styles.cart}>
+        {cartItems.length > 0 &&
+          cartItems.map((item, index) => {
+            return <CartItemCard item={item} index={index} key={item.id} />;
+          })}
       </div>
+      <div className={styles.checkoutBtn}>
+        {cartItems.length > 0 && (
+          <button
+            className={styles.btn}
+            onClick={(e) => {
+              e.preventDefault;
+              window.alert('Checkout not working (not a real store)');
+            }}
+          >
+            Chekout {getTotalPrice()}$
+          </button>
+        )}
+      </div>
+      <img className={styles.img} src='./shopping_two.svg' alt='image of a man and lady shopping' />
     </div>
   );
 }
