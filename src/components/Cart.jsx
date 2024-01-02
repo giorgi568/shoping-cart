@@ -10,12 +10,10 @@ export default function Cart() {
     <div>
       <div>
         <div>
-          {cartItems.length > 0 && (
-            <CartItemCard
-              item={cartItems[0]}
-              index={0}
-            />
-          )}
+          {cartItems.length > 0 &&
+            cartItems.map((item, index) => {
+              return <CartItemCard item={item} index={index} />;
+            })}
         </div>
       </div>
     </div>
