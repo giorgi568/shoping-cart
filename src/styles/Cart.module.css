@@ -6,3 +6,10 @@
   align-items: center;
   gap: 10px;
 }
+.checkoutBtn{
+  font-size: 1.3rem;
+}
+.btn{
+  background-color: #3D3B40;
+  color: white;
+}
