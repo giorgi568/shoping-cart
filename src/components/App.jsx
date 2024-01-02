@@ -39,9 +39,10 @@ function App() {
           <div className={styles.slider} style={sliderStyle}></div>
         </div>
         <div className={styles.cartLogoWrapper}>
-          <Link to={'/cart'}>
+          <Link to={'/cart'} className={styles.link}>
             <img src='./shopping_cart.svg' alt='shopping cart logo' />
           </Link>
+          {cartItems.length > 0 && <p>{cartItems.length}</p>}
         </div>
       </div>
       <Outlet />

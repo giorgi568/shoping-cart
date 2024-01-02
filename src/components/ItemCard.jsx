@@ -53,6 +53,7 @@ export default function ItemCard({ item }) {
           <button
             className={styles.btn}
             onClick={(e) => {
+              let items = [...cartItems];
               e.preventDefault();
               if (!checkQnt(item.id, qnt) || qnt > 10) {
                 !inputError && setInputError(true);
@@ -72,10 +73,10 @@ export default function ItemCard({ item }) {
                 });
                 if (!alreadyInCart) {
                   item.qnt = qnt;
-                  cartItems.push(item);
+                  items.push(item);
                 }
               }
-              addToCart(cartItems);
+              addToCart(items);
             }}
           >
             Add To Your Cart

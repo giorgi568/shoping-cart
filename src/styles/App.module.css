@@ -44,5 +44,25 @@
 }
 .cartLogoWrapper{
   margin-left: auto;
-  margin-right: 20px;
+  margin-right: 10px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: black;
+}
+.cartLogoWrapper > p{
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  background-color:#BFCFE7;
+  color: #525CEB;
+  padding: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

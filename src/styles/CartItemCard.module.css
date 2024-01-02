@@ -3,4 +3,33 @@
   justify-content: center;
   align-items: center;
   gap: 50px;
+  background-color: #BFCFE7;
+  width: 900px;
+  border-radius: 15px;
+  padding: 10px;
+}
+.title{
+  width: 55%;
+  font-size: 1rem;
+}
+.quantity{
+  width: 15%;
+}
+.price{
+  width: 15%;
+}
+.btn{
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.btn:hover{
+  background-color: #525CEB;
+}
+.title, .quantity, .price{
+  margin: 0;
 }
