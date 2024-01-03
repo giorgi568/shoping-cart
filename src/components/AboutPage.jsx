@@ -9,7 +9,6 @@ export default function AboutPage() {
       transform: 'translateX(0px)',
     });
   }, []);
-  console.log(wrapperStyle);
   return (
     <div className={styles.wrapper}>
       <img

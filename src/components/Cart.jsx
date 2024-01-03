@@ -5,7 +5,6 @@ import styles from '../styles/Cart.module.css';
 
 export default function Cart() {
   const { cartItems } = useContext(CartContext);
-  console.log(cartItems, 55555);
   const getTotalPrice = () => {
     let total = 0;
     if (cartItems.length > 0) {

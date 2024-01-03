@@ -7,6 +7,8 @@ export default function ItemCard({ item }) {
   const { cartItems, addToCart } = useContext(CartContext);
   const [inputError, setInputError] = useState('');
   const [qnt, setQnt] = useState(1);
+  const [zoomedImage, setZoomedImage] = useState(false);
+  const zoomedStyle = zoomedImage ? { height: 200 + 'px', cursor: 'zoom-out' } : {};
 
   const checkQntValue = () => {
     if (qnt > 10) {
@@ -40,6 +42,15 @@ export default function ItemCard({ item }) {
     });
     return lessThanTen;
   };
+
+  const ZoomImage = () => {
+    if (zoomedImage) {
+      setZoomedImage(false);
+    } else {
+      setZoomedImage(true);
+    }
+  };
+
   return (
     <div className={styles.card}>
       <h3 className={styles.title}>{item.title}</h3>
@@ -48,6 +59,8 @@ export default function ItemCard({ item }) {
           src={item.image}
           alt='image of the product'
           className={styles.img}
+          style={zoomedStyle}
+          onClick={ZoomImage}
         />
         <div className={styles.descriptionWrapper}>
           <p className={styles.description}>{item.description}</p>

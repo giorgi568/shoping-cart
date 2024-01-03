@@ -31,7 +31,6 @@ export default function Store() {
     const selectedOption = event.target.value;
     setSelectedCategory(selectedOption);
   };
-  // console.log(productArr[0].description);
   return (
     <div className={styles.content}>
       <div>
