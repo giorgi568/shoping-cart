@@ -13,8 +13,8 @@ export default function CartItemCard({ item, index }) {
   return (
     <div className={styles.container}>
       <h3 className={styles.title}>{item.title}</h3>
-      <p className={styles.quantity}>Quantity: {item.qnt}</p>
-      <p className={styles.price}>Price: {item.price * item.qnt}$</p>
+      <p className={styles.quantity}>Quantity:{item.qnt}</p>
+      <p className={styles.price}>Price:{item.price * item.qnt}$</p>
       <button
         className={styles.btn}
         onClick={() => {

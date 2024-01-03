@@ -15,8 +15,10 @@
 }
 .img {
   height: 200px;
-  /* position: relative;
-  right: 0;
-  margin-right: auto; */
   margin-left: 50%;
+}
+@media (max-width: 500px) {
+  .img{
+    width: 100px;
+  }
 }

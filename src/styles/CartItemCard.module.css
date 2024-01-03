@@ -33,3 +33,16 @@
 .title, .quantity, .price{
   margin: 0;
 }
+
+@media (max-width: 500px) {
+  .container{
+    width: 90%;
+    box-sizing: border-box;
+    gap: 5px;
+    /* padding: 10px; */
+    flex-direction: column;
+  }
+  .title{
+    width: 90%;
+  }
+}
